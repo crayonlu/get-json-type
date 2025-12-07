@@ -1,0 +1,30 @@
+{
+  "name": "get-json-type",
+  "version": "0.1.0",
+  "description": "A CLI tool to analyze JSON structure and generate TypeScript types",
+  "type": "module",
+  "module": "./src/index.ts",
+  "bin": {
+    "get-json-type": "./bin/cli.ts"
+  },
+  "scripts": {
+    "dev": "bun run bin/cli.ts",
+    "build": "bun build bin/cli.ts --outfile=dist/cli.js --target=node",
+    "start": "bun run dist/cli.js",
+    "test": "bun test"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@clack/prompts": "^0.11.0",
+    "cac": "^6.7.14",
+    "clipboardy": "^5.0.1",
+    "ora": "^9.0.0",
+    "picocolors": "^1.1.1",
+    "prettier": "^3.7.4"
+  }
+}
