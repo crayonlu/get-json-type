@@ -11,7 +11,9 @@
     "dev": "bun run bin/cli.ts",
     "build": "bun build bin/cli.ts --outfile=dist/cli.js --target=node",
     "start": "bun run dist/cli.js",
-    "test": "bun test"
+    "test": "bun test",
+    "format:check": "prettier --check .",
+    "format": "prettier . --write"
   },
   "devDependencies": {
     "@types/bun": "latest"
@@ -25,6 +27,6 @@
     "clipboardy": "^5.0.1",
     "ora": "^9.0.0",
     "picocolors": "^1.1.1",
-    "prettier": "^3.7.4"
+    "prettier": "3.7.4"
   }
 }
