@@ -1,5 +1,6 @@
 import { type ParsedType, type TypeRegistry } from '@/types/parsed';
 import pluralize from 'pluralize';
+import { deduplicateTypes } from '@/utils/type-dedup-utils';
 
 export class TypeTransformer {
   private registry: TypeRegistry = new Map();
@@ -48,9 +49,13 @@ export class TypeTransformer {
       };
     }
     if (node.kind === 'union') {
+      const deduped = deduplicateTypes(node.types);
+      const transformedTypes = deduped.map((t, index) =>
+        this.traverse(t, `${suggestedName}Union${index}`)
+      );
       return {
         kind: 'union',
-        types: node.types.map((t, index) => this.traverse(t, `${suggestedName}Union${index}`)),
+        types: transformedTypes,
       };
     }
     return node;
