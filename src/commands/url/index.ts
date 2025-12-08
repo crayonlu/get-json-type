@@ -3,7 +3,7 @@ import pc from 'picocolors';
 import { type UrlCommandOptions } from '@/types/url';
 import getJsonFromUrl from '@/core/features/url/get-json-from-url';
 import { generateTypeFromJson } from '@/core/features/common/generate-type';
-
+import { isValidTypeName } from '@/utils/regex-utils';
 export async function urlCommand(source: string, options: UrlCommandOptions) {
   p.intro(pc.bgCyan(pc.black(' get-json-type ')));
   let bearer = options.bearer;
@@ -39,9 +39,8 @@ export async function urlCommand(source: string, options: UrlCommandOptions) {
       initialValue: 'RootType',
       validate: (value) => {
         if (!value) return 'Type name is required';
-        if (!/^[A-Z][a-zA-Z0-9]*$/.test(value)) {
+        if (!isValidTypeName(value))
           return 'Type name must start with uppercase letter and contain only alphanumeric characters';
-        }
       },
     });
     if (p.isCancel(name)) {

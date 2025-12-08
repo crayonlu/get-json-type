@@ -58,4 +58,3 @@ export function runCLI() {
 
 export { urlCommand, fileCommand, clipboardCommand, interactiveMode };
 export { default as parseJsonToType } from '@/core/common';
-

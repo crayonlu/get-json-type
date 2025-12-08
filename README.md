@@ -71,7 +71,7 @@ import { parseJsonToType } from 'json2ts-type';
 const jsonData = {
   id: 1,
   name: 'John',
-  tags: ['admin', 'user']
+  tags: ['admin', 'user'],
 };
 
 const result = parseJsonToType(jsonData, 'User');
@@ -96,11 +96,11 @@ export interface User {
 get-json-type url <source> [options]
 ```
 
-| 选项 | 简写 | 说明 |
-|------|------|------|
-| `--bearer <token>` | `-b` | Bearer 认证令牌 |
-| `--name <name>` | `-n` | 生成的类型名称（默认：RootType） |
-| `--output <file>` | `-o` | 输出文件路径 |
+| 选项               | 简写 | 说明                             |
+| ------------------ | ---- | -------------------------------- |
+| `--bearer <token>` | `-b` | Bearer 认证令牌                  |
+| `--name <name>`    | `-n` | 生成的类型名称（默认：RootType） |
+| `--output <file>`  | `-o` | 输出文件路径                     |
 
 ### file 命令
 
@@ -108,10 +108,10 @@ get-json-type url <source> [options]
 get-json-type file <source> [options]
 ```
 
-| 选项 | 简写 | 说明 |
-|------|------|------|
-| `--name <name>` | `-n` | 生成的类型名称（默认：RootType） |
-| `--output <file>` | `-o` | 输出文件路径 |
+| 选项              | 简写 | 说明                             |
+| ----------------- | ---- | -------------------------------- |
+| `--name <name>`   | `-n` | 生成的类型名称（默认：RootType） |
+| `--output <file>` | `-o` | 输出文件路径                     |
 
 ### clipboard 命令
 
@@ -119,10 +119,10 @@ get-json-type file <source> [options]
 get-json-type clipboard [options]
 ```
 
-| 选项 | 简写 | 说明 |
-|------|------|------|
-| `--name <name>` | `-n` | 生成的类型名称（默认：RootType） |
-| `--output <file>` | `-o` | 输出文件路径 |
+| 选项              | 简写 | 说明                             |
+| ----------------- | ---- | -------------------------------- |
+| `--name <name>`   | `-n` | 生成的类型名称（默认：RootType） |
+| `--output <file>` | `-o` | 输出文件路径                     |
 
 ## 功能示例
 

@@ -1,5 +1,5 @@
 import { type ParsedType, type TypeRegistry, type ParsedProperty } from '@/types/parsed';
-
+import { isSafeIdentifier } from '@/utils/regex-utils';
 /**
  * Generate TypeScript code from AST and registry
  * @param root - Root type node
@@ -29,8 +29,8 @@ export function genTypeCode(root: ParsedType, registry: TypeRegistry, rootName: 
  * @returns Formatted property string
  */
 function printProperty(prop: ParsedProperty): string {
-  const isSafeIdentifier = /^[a-zA-Z_$][a-zA-Z0-9_$]*$/.test(prop.key);
-  const safeKey = isSafeIdentifier ? prop.key : `"${prop.key}"`;
+  const safeIdentifier = isSafeIdentifier(prop.key);
+  const safeKey = safeIdentifier ? prop.key : `"${prop.key}"`;
   return `  ${safeKey}${prop.optional ? '?' : ''}: ${printType(prop.type)};`;
 }
 

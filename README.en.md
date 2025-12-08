@@ -71,7 +71,7 @@ import { parseJsonToType } from 'json2ts-type';
 const jsonData = {
   id: 1,
   name: 'John',
-  tags: ['admin', 'user']
+  tags: ['admin', 'user'],
 };
 
 const result = parseJsonToType(jsonData, 'User');
@@ -96,11 +96,11 @@ export interface User {
 get-json-type url <source> [options]
 ```
 
-| Option | Alias | Description |
-|--------|-------|-------------|
-| `--bearer <token>` | `-b` | Bearer authentication token |
-| `--name <name>` | `-n` | Generated type name (default: RootType) |
-| `--output <file>` | `-o` | Output file path |
+| Option             | Alias | Description                             |
+| ------------------ | ----- | --------------------------------------- |
+| `--bearer <token>` | `-b`  | Bearer authentication token             |
+| `--name <name>`    | `-n`  | Generated type name (default: RootType) |
+| `--output <file>`  | `-o`  | Output file path                        |
 
 ### file command
 
@@ -108,10 +108,10 @@ get-json-type url <source> [options]
 get-json-type file <source> [options]
 ```
 
-| Option | Alias | Description |
-|--------|-------|-------------|
-| `--name <name>` | `-n` | Generated type name (default: RootType) |
-| `--output <file>` | `-o` | Output file path |
+| Option            | Alias | Description                             |
+| ----------------- | ----- | --------------------------------------- |
+| `--name <name>`   | `-n`  | Generated type name (default: RootType) |
+| `--output <file>` | `-o`  | Output file path                        |
 
 ### clipboard command
 
@@ -119,10 +119,10 @@ get-json-type file <source> [options]
 get-json-type clipboard [options]
 ```
 
-| Option | Alias | Description |
-|--------|-------|-------------|
-| `--name <name>` | `-n` | Generated type name (default: RootType) |
-| `--output <file>` | `-o` | Output file path |
+| Option            | Alias | Description                             |
+| ----------------- | ----- | --------------------------------------- |
+| `--name <name>`   | `-n`  | Generated type name (default: RootType) |
+| `--output <file>` | `-o`  | Output file path                        |
 
 ## Examples
 
