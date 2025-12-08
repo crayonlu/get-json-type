@@ -1,0 +1,46 @@
+{
+  "id": 1,
+  "title": "Sample Product",
+  "description": "This is a test JSON file for testing file command",
+  "price": 99.99,
+  "inStock": true,
+  "tags": ["electronics", "sale", "featured"],
+  "category": {
+    "id": 10,
+    "name": "Electronics",
+    "slug": "electronics"
+  },
+  "reviews": [
+    {
+      "id": 1,
+      "rating": 5,
+      "comment": "Excellent product!",
+      "author": "John Doe",
+      "verified": true
+    },
+    {
+      "id": 2,
+      "rating": 4,
+      "comment": "Good value for money",
+      "author": "Jane Smith",
+      "verified": false
+    },
+    {
+      "id": 3,
+      "rating": 5,
+      "author": "Bob Wilson",
+      "verified": true
+    }
+  ],
+  "metadata": {
+    "createdAt": "2025-12-08T10:00:00Z",
+    "updatedAt": "2025-12-08T14:30:00Z",
+    "version": 1
+  },
+  "variants": [
+    { "color": "red", "size": "M", "stock": 10 },
+    { "color": "blue", "size": "L" }
+  ],
+  "relatedItems": [1, "featured-001", 42, "promo-xyz"],
+  "discount": null
+}

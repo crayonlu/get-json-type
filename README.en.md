@@ -1,69 +1,69 @@
 # get-json-type
 
-[English](./README.en.md) | 简体中文
+English | [简体中文](./README.md)
 
-一款将 JSON 数据转换为 TypeScript 类型定义的 CLI 工具。
+A CLI tool to convert JSON data into TypeScript type definitions.
 
-## 功能
+## Features
 
-- 支持多种数据源：URL、本地文件、剪贴板
-- 自动检测可选属性
-- 智能合并数组中的对象类型
-- 支持嵌套对象提取
-- 支持 Union 类型
-- 交互式命令行界面
-- 可作为 npm 包导入使用
+- Multiple data sources: URL, local file, clipboard
+- Automatic optional property detection
+- Smart merging of object types in arrays
+- Nested object extraction
+- Union type support
+- Interactive command-line interface
+- Available as npm package
 
-## 安装
+## Installation
 
 ```bash
 bun install get-json-type
 ```
 
-## 使用方式
+## Usage
 
-### CLI 命令行
+### CLI Commands
 
-#### 从 URL 获取
+#### From URL
 
 ```bash
-# 基础用法
+# Basic usage
 get-json-type url https://api.example.com/data
 
-# 使用 Bearer 认证
+# With Bearer authentication
 get-json-type url https://api.example.com/data -b your-token
 
-# 指定类型名称和输出文件
+# Specify type name and output file
 get-json-type url https://api.example.com/data -n ApiResponse -o types/api.ts
 ```
 
-#### 从文件读取
+#### From File
 
 ```bash
-# 相对路径
+# Relative path
 get-json-type file ./data.json
 
-# 绝对路径
+# Absolute path
 get-json-type file /path/to/data.json -n MyType -o types/my-type.ts
 ```
 
-#### 从剪贴板读取
+#### From Clipboard
 
 ```bash
 get-json-type clipboard -n ClipboardData -o types/clipboard.ts
 ```
 
-#### 交互式模式
+#### Interactive Mode
 
 ```bash
-# 直接运行命令，无需参数
+# Run without arguments
 get-json-type
 
-# 或使用 bun dev
+# Or use bun dev
 bun dev
 ```
 
-### 作为库使用
+### As Library
 
 ```typescript
 import { parseJsonToType } from 'get-json-type';
@@ -78,7 +78,7 @@ const result = parseJsonToType(jsonData, 'User');
 console.log(result.code);
 ```
 
-输出：
+Output:
 
 ```typescript
 export interface User {
@@ -88,47 +88,47 @@ export interface User {
 }
 ```
 
-## 命令选项
+## Command Options
 
-### url 命令
+### url command
 
 ```
 get-json-type url <source> [options]
 ```
 
-| 选项 | 简写 | 说明 |
-|------|------|------|
-| `--bearer <token>` | `-b` | Bearer 认证令牌 |
-| `--name <name>` | `-n` | 生成的类型名称（默认：RootType） |
-| `--output <file>` | `-o` | 输出文件路径 |
+| Option | Alias | Description |
+|--------|-------|-------------|
+| `--bearer <token>` | `-b` | Bearer authentication token |
+| `--name <name>` | `-n` | Generated type name (default: RootType) |
+| `--output <file>` | `-o` | Output file path |
 
-### file 命令
+### file command
 
 ```
 get-json-type file <source> [options]
 ```
 
-| 选项 | 简写 | 说明 |
-|------|------|------|
-| `--name <name>` | `-n` | 生成的类型名称（默认：RootType） |
-| `--output <file>` | `-o` | 输出文件路径 |
+| Option | Alias | Description |
+|--------|-------|-------------|
+| `--name <name>` | `-n` | Generated type name (default: RootType) |
+| `--output <file>` | `-o` | Output file path |
 
-### clipboard 命令
+### clipboard command
 
 ```
 get-json-type clipboard [options]
 ```
 
-| 选项 | 简写 | 说明 |
-|------|------|------|
-| `--name <name>` | `-n` | 生成的类型名称（默认：RootType） |
-| `--output <file>` | `-o` | 输出文件路径 |
+| Option | Alias | Description |
+|--------|-------|-------------|
+| `--name <name>` | `-n` | Generated type name (default: RootType) |
+| `--output <file>` | `-o` | Output file path |
 
-## 功能示例
+## Examples
 
-### 可选属性检测
+### Optional Property Detection
 
-输入 JSON：
+Input JSON:
 
 ```json
 {
@@ -139,7 +139,7 @@ get-json-type clipboard [options]
 }
 ```
 
-生成类型：
+Generated types:
 
 ```typescript
 export interface User {
@@ -153,9 +153,9 @@ export interface RootType {
 }
 ```
 
-### Union 类型支持
+### Union Type Support
 
-输入 JSON：
+Input JSON:
 
 ```json
 {
@@ -163,7 +163,7 @@ export interface RootType {
 }
 ```
 
-生成类型：
+Generated types:
 
 ```typescript
 export interface RootType {
@@ -171,9 +171,9 @@ export interface RootType {
 }
 ```
 
-### 嵌套对象提取
+### Nested Object Extraction
 
-输入 JSON：
+Input JSON:
 
 ```json
 {
@@ -186,7 +186,7 @@ export interface RootType {
 }
 ```
 
-生成类型：
+Generated types:
 
 ```typescript
 export interface Profile {

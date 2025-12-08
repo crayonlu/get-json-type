@@ -16,7 +16,8 @@
     "format": "prettier . --write"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "@types/pluralize": "^0.0.33"
   },
   "peerDependencies": {
     "typescript": "^5"
@@ -27,6 +28,7 @@
     "clipboardy": "^5.0.1",
     "ora": "^9.0.0",
     "picocolors": "^1.1.1",
+    "pluralize": "^8.0.0",
     "prettier": "3.7.4"
   }
 }

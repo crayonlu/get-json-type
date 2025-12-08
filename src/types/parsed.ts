@@ -1,14 +1,16 @@
 /**
- * Prased TypeScript type representation
+ * Parsed TypeScript type representation
  */
 export type ParsedType =
-  | { kind: 'string'; tsType: 'string' }
-  | { kind: 'number'; tsType: 'number' }
-  | { kind: 'boolean'; tsType: 'boolean' }
-  | { kind: 'null'; tsType: 'null' }
-  | { kind: 'array'; tsType: string; itemType: ParsedType }
-  | { kind: 'object'; tsType: string; properties: ParsedProperty[] }
-  | { kind: 'union'; tsType: string; types: ParsedType[] };
+  | { kind: 'string' }
+  | { kind: 'number' }
+  | { kind: 'boolean' }
+  | { kind: 'null' }
+  | { kind: 'any' }
+  | { kind: 'array'; itemType: ParsedType }
+  | { kind: 'object'; properties: ParsedProperty[] }
+  | { kind: 'union'; types: ParsedType[] }
+  | { kind: 'reference'; name: string };
 /**
  * Object's property
  */
@@ -17,7 +19,6 @@ export interface ParsedProperty {
   type: ParsedType;
   optional: boolean;
 }
-
 /**
  * The complete parse result
  */
@@ -29,3 +30,7 @@ export interface ParseResult {
   /** Type name (if it is a top-level type) */
   typeName: string;
 }
+/**
+ * Type registry for named types
+ */
+export type TypeRegistry = Map<string, ParsedType>;
