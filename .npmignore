@@ -1,0 +1,12 @@
+src/
+tests/
+bin/
+examples/
+.prettierrc
+.gitignore
+tsconfig.json
+bun.lockb
+*.test.ts
+*.log
+node_modules/
+.vscode/
