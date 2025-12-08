@@ -1,5 +1,5 @@
 {
-  "name": "@crayonlu/get-json-type",
+  "name": "json2ts-type",
   "version": "0.1.0",
   "description": "A CLI tool to convert JSON data into TypeScript type definitions",
   "type": "module",
