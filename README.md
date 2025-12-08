@@ -17,7 +17,7 @@
 ## 安装
 
 ```bash
-bun install get-json-type
+bun add json2ts-type
 ```
 
 ## 使用方式
@@ -66,7 +66,7 @@ bun dev
 ### 作为库使用
 
 ```typescript
-import { parseJsonToType } from 'get-json-type';
+import { parseJsonToType } from 'json2ts-type';
 
 const jsonData = {
   id: 1,

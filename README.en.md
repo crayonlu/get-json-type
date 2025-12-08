@@ -17,7 +17,7 @@ A CLI tool to convert JSON data into TypeScript type definitions.
 ## Installation
 
 ```bash
-bun install get-json-type
+bun add json2ts-type
 ```
 
 ## Usage
@@ -66,7 +66,7 @@ bun dev
 ### As Library
 
 ```typescript
-import { parseJsonToType } from 'get-json-type';
+import { parseJsonToType } from 'json2ts-type';
 
 const jsonData = {
   id: 1,
