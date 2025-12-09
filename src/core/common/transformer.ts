@@ -1,5 +1,5 @@
 import { type ParsedType, type TypeRegistry } from '@/types/parsed';
-import pluralize from 'pluralize';
+import pluralize from 'pluralize-esm';
 import { deduplicateTypes } from '@/utils/type-dedup-utils';
 
 export class TypeTransformer {

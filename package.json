@@ -1,11 +1,25 @@
 {
   "name": "json2ts-type",
-  "version": "0.1.1",
-  "description": "A CLI tool to convert JSON data into TypeScript type definitions",
+  "version": "1.0.0",
+  "description": "A CLI tool to convert JSON data into TypeScript type definitions. Supports Node.js, Browser, and VSCode extension environments.",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/src/lib.d.ts",
+      "browser": "./dist/lib.js",
+      "import": "./dist/lib.js",
+      "require": "./dist/lib.cjs",
+      "default": "./dist/lib.js"
+    },
+    "./cli": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
   "bin": {
     "get-json-type": "./dist/cli.js"
   },
@@ -36,7 +50,10 @@
   "homepage": "https://github.com/crayonlu/get-json-type#readme",
   "scripts": {
     "dev": "bun run bin/cli.ts",
-    "build": "bun build src/index.ts --outdir=dist --target=node --format=esm && bun build bin/cli.ts --outfile=dist/cli.js --target=node --format=esm",
+    "build": "bun run build:lib && bun run build:cli-full && bun run build:cli",
+    "build:lib": "bun build src/lib.ts --outdir=dist --target=browser --format=esm && bun build src/lib.ts --outfile=dist/lib.cjs --target=node --format=cjs",
+    "build:cli-full": "bun build src/index.ts --outdir=dist --target=node --format=esm",
+    "build:cli": "bun build bin/cli.ts --outfile=dist/cli.js --target=node --format=esm",
     "prepublishOnly": "bun test && bun run build",
     "start": "bun run dist/cli.js",
     "test": "bun test",
@@ -45,7 +62,8 @@
   },
   "devDependencies": {
     "@types/bun": "latest",
-    "@types/pluralize": "^0.0.33"
+    "@types/pluralize": "^0.0.33",
+    "pluralize-esm": "^9.0.5"
   },
   "peerDependencies": {
     "typescript": "^5"
