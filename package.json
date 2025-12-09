@@ -1,6 +1,6 @@
 {
   "name": "json2ts-type",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A CLI tool to convert JSON data into TypeScript type definitions. Supports Node.js, Browser, and VSCode extension environments.",
   "type": "module",
   "main": "./dist/index.js",
@@ -50,10 +50,11 @@
   "homepage": "https://github.com/crayonlu/get-json-type#readme",
   "scripts": {
     "dev": "bun run bin/cli.ts",
-    "build": "bun run build:lib && bun run build:cli-full && bun run build:cli",
+    "build": "bun run build:lib && bun run build:cli-full && bun run build:cli && bun run build:types",
     "build:lib": "bun build src/lib.ts --outdir=dist --target=browser --format=esm && bun build src/lib.ts --outfile=dist/lib.cjs --target=node --format=cjs",
     "build:cli-full": "bun build src/index.ts --outdir=dist --target=node --format=esm",
     "build:cli": "bun build bin/cli.ts --outfile=dist/cli.js --target=node --format=esm",
+    "build:types": "tsc",
     "prepublishOnly": "bun test && bun run build",
     "start": "bun run dist/cli.js",
     "test": "bun test",
