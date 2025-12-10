@@ -1,5 +1,6 @@
 import parseJsonToType from '@/core/common';
 import type { JsonValue } from '@/types/json';
+import { writeFile } from 'fs/promises';
 
 export interface GenerateTypeOptions {
   typeName: string;
@@ -19,7 +20,7 @@ export async function generateTypeFromJson(
   const parseResult = parseJsonToType(jsonData, options.typeName);
 
   if (options.outputPath) {
-    await Bun.write(options.outputPath, parseResult.code);
+    await writeFile(options.outputPath, parseResult.code, 'utf-8');
     return {
       code: parseResult.code,
       saved: true,
